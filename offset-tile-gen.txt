@@ -1,0 +1,22 @@
+<canvas id=canvas></canvas>
+<script>
+cw=2000;
+ch=3000;
+canvas=document.getElementById("canvas");
+canvas.width=cw;
+canvas.height=ch;
+ctx=canvas.getContext("2d");
+img=new Image();
+img.src="monkey.jpg";
+img.onload=function() {
+    w=img.width;
+    h=img.height;
+    hor=Math.ceil(cw/w);
+    vert=Math.ceil(ch/h);
+    for(var i=0;i<hor+1;i++) {
+        for(var j=0;j<vert;j++) {
+            ctx.drawImage(img,Math.floor(w*(i - (j%2)/2)),j*h);
+        }
+    }
+};
+</script>
